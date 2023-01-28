@@ -3,13 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <meta name="robots" content="noindex, nofollow">
     <title>Password Protected Page</title>
     <style>
         
+        .animate__bounceOut{
 
+            --animate-duration: 3s;
+
+        }
+        .animate__bounceOut>#colorHandle {
+            fill: #262428;
+        }
+
+        .animate__bounceOut>.circle {
+            fill: #17de63;
+        }
+        .animate__bounceOut> .handle{
+            transform-origin: 14px 17px;
+            transform: rotate(329deg);
+        }
+      
+
+        #shake>.circle {
+            fill: #17de63;
+        }
+      
         #shake>#colorHandle {
-            fill: white;
+            fill: #2a2a2f;
+           
         }
 
         #shake>.circle {
@@ -17,8 +40,6 @@
         }
 
         #shake {
-
-
             -webkit-animation-name: wobble;
             animation-name: wobble;
             -webkit-animation-duration: 0.8s;
@@ -270,7 +291,7 @@
                         <svg id="lockIconEl" width="42" height="42" viewBox="0 0 42 42" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect id="colorHandle" width="42" height="42" rx="21" fill="#7000FF" />
-                            <path class="circle" fill-rule="evenodd" clip-rule="evenodd"
+                            <path class="circle handle" fill-rule="evenodd" clip-rule="evenodd"
                                 d="M20.7163 13.0541C18.449 13.0541 16.5699 14.7158 16.2304 16.8878C16.1699 17.275 16.4934 17.5946 16.8852 17.5946V17.5946C17.277 17.5946 17.5869 17.2735 17.6676 16.8901C17.9921 15.3474 19.3608 14.1892 21 14.1892C22.6392 14.1892 24.0079 15.3474 24.3325 16.8901C24.4131 17.2735 24.7231 17.5946 25.1149 17.5946V17.5946C25.5067 17.5946 25.8302 17.275 25.7697 16.8878C25.4302 14.7158 23.5511 13.0541 21.2838 13.0541H20.7163Z"
                                 fill="#F2F5FF" />
                             <rect class="circle" x="13.0541" y="18.1621" width="15.8919" height="10.7838" rx="3"
@@ -429,7 +450,8 @@
                 
                 contentFrame.srcdoc = decrypted;
                 successEl.style.display = "inline";
-                // lockIconEl.id='celebrateAnimate';
+                lockIconEl.classList='animate__bounceOut';
+                submitPass.classList='submitSuccess';
                 setTimeout(function() {
                     dialogWrap.style.display = "none";
                 }, 1000);
